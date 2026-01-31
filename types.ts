@@ -1,7 +1,8 @@
 
 export type Level = 'Primaire' | 'Collège' | 'Lycée';
 
-export type SubjectId = 'maths' | 'francais' | 'sciences' | 'histoire';
+// Added missing subject IDs: 'geographie', 'anglais', 'informatique', 'arts'
+export type SubjectId = 'maths' | 'francais' | 'sciences' | 'histoire' | 'geographie' | 'anglais' | 'informatique' | 'arts';
 
 export interface Exercise {
   id: string;

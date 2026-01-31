@@ -1,7 +1,7 @@
 
 import React from 'react';
-import { SUBJECTS } from '../data/subjects';
-import { Subject } from '../types';
+import { SUBJECTS } from '../data/subjects.ts';
+import { Subject } from '../types.ts';
 
 interface SubjectSelectorProps {
   onSelect: (subject: Subject) => void;
@@ -9,10 +9,14 @@ interface SubjectSelectorProps {
 
 const SubjectSelector: React.FC<SubjectSelectorProps> = ({ onSelect }) => {
   return (
-    <div className="space-y-8">
-      <div className="text-center space-y-2">
-        <h1 className="text-3xl sm:text-4xl font-black text-gray-900">Que veux-tu apprendre aujourd'hui ?</h1>
-        <p className="text-gray-500 text-lg">Sélectionne une matière pour commencer ton aventure.</p>
+    <div className="space-y-12">
+      <div className="text-center space-y-4">
+        <h1 className="text-4xl sm:text-5xl font-black text-gray-900 tracking-tight">
+          L'Odyssée du <span className="text-blue-600">Savoir</span>
+        </h1>
+        <p className="text-gray-500 text-lg max-w-2xl mx-auto">
+          Explore de nouvelles matières, gagne des points d'expérience et deviens le meilleur de ta catégorie !
+        </p>
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -20,21 +24,25 @@ const SubjectSelector: React.FC<SubjectSelectorProps> = ({ onSelect }) => {
           <button
             key={subject.id}
             onClick={() => onSelect(subject)}
-            className="group relative bg-white p-8 rounded-3xl border-2 border-transparent hover:border-blue-500 hover:shadow-2xl transition-all duration-300 text-left overflow-hidden"
+            className="group relative bg-white p-8 rounded-[2.5rem] border-2 border-transparent hover:border-blue-500 hover:shadow-[0_20px_50px_rgba(0,0,0,0.1)] transition-all duration-300 text-left overflow-hidden flex flex-col"
           >
-            <div className={`${subject.color} w-16 h-16 rounded-2xl flex items-center justify-center text-3xl mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+            <div className={`${subject.color} w-16 h-16 rounded-2xl flex items-center justify-center text-3xl mb-6 shadow-lg group-hover:scale-110 transition-transform duration-500`}>
               {subject.icon}
             </div>
             <h3 className="text-2xl font-bold text-gray-800 mb-2">{subject.name}</h3>
-            <p className="text-gray-500 text-sm">Découvre des cours passionnants et teste tes connaissances.</p>
+            <p className="text-gray-500 text-sm flex-grow">
+              Parcours interactif adapté à ton niveau scolaire.
+            </p>
             
-            <div className="absolute top-0 right-0 p-4 opacity-0 group-hover:opacity-100 transition-opacity">
-              <div className="bg-blue-100 text-blue-600 p-2 rounded-lg">
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
-              </div>
+            <div className="mt-6 flex items-center text-blue-600 font-bold text-sm">
+              Commencer
+              <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7-7 7" />
+              </svg>
             </div>
+            
+            {/* Background Accent */}
+            <div className={`absolute -bottom-12 -right-12 w-24 h-24 rounded-full ${subject.color} opacity-[0.03] group-hover:scale-[3] transition-transform duration-700`}></div>
           </button>
         ))}
       </div>

@@ -1,11 +1,11 @@
 
 import React, { useState, useEffect } from 'react';
-import Navbar from './components/Navbar';
-import SubjectSelector from './components/SubjectSelector';
-import LevelSelector from './components/LevelSelector';
-import GameEngine from './components/GameEngine';
-import Leaderboard from './components/Leaderboard';
-import { Subject, Level, UserStats } from './types';
+import Navbar from './components/Navbar.tsx';
+import SubjectSelector from './components/SubjectSelector.tsx';
+import LevelSelector from './components/LevelSelector.tsx';
+import GameEngine from './components/GameEngine.tsx';
+import Leaderboard from './components/Leaderboard.tsx';
+import { Subject, Level, UserStats } from './types.ts';
 
 const App: React.FC = () => {
   const [user, setUser] = useState<UserStats>(() => {
