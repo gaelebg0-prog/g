@@ -1,7 +1,9 @@
 
 export type Level = 'Collège' | 'Lycée';
 
-export type SubjectId = 'maths' | 'francais' | 'sciences' | 'histoire' | 'geographie' | 'anglais' | 'informatique' | 'arts' | 'civisme' | 'ecologie';
+export type Grade = 
+  | '6ème' | '5ème' | '4ème' | '3ème' // Collège
+  | 'Seconde' | 'Première' | 'Terminale'; // Lycée
 
 export interface Exercise {
   id: string;
@@ -9,23 +11,33 @@ export interface Exercise {
   options: string[];
   correctAnswer: number;
   justification: string;
-  points: number;
-  completed?: boolean;
 }
 
 export interface Lesson {
   id: string;
   title: string;
   content: string;
+  videoUrl?: string;
   exercises: Exercise[];
 }
 
+export interface Theme {
+  id: string;
+  title: string;
+  description: string;
+  lessons: Lesson[];
+}
+
 export interface Subject {
-  id: SubjectId;
+  id: string;
   name: string;
   icon: string;
-  color: string;
-  levels: Record<Level, Lesson[]>;
+  themes: Theme[];
+}
+
+export interface GradeContent {
+  grade: Grade;
+  subjects: Subject[];
 }
 
 export interface UserStats {
@@ -33,7 +45,6 @@ export interface UserStats {
   completedExercises: number;
 }
 
-// Fix: Adding the missing LeaderboardEntry interface required by Leaderboard.tsx
 export interface LeaderboardEntry {
   username: string;
   xp: number;
