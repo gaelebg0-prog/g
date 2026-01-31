@@ -11,33 +11,31 @@ interface SubjectSelectorProps {
 const SubjectSelector: React.FC<SubjectSelectorProps> = ({ level, onSelect }) => {
   return (
     <div className="space-y-12">
-      <div className="text-center space-y-4">
-        <h1 className="text-4xl sm:text-5xl font-black text-gray-900 tracking-tight">
-          Rayon des <span className="text-blue-600">Matières</span>
-        </h1>
-        <p className="text-gray-500 text-lg max-w-2xl mx-auto">
-          Prêt pour le programme "{level}" ? Choisis ton défi.
+      <div className="space-y-3">
+        <h2 className="text-4xl font-extrabold text-slate-900">
+          Cursus <span className="text-blue-600">{level}</span>
+        </h2>
+        <p className="text-slate-500 text-lg font-medium max-w-2xl">
+          Sélectionnez une unité d'enseignement pour accéder aux modules de cours.
         </p>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {SUBJECTS.map((subject) => (
           <button
             key={subject.id}
             onClick={() => onSelect(subject)}
-            className="group relative bg-white p-8 rounded-[2.5rem] border-2 border-transparent hover:border-blue-500 hover:shadow-2xl transition-all duration-300 text-left overflow-hidden flex flex-col min-h-[220px]"
+            className="group bg-white p-8 rounded-3xl border border-slate-200 hover:border-blue-600 hover:shadow-xl transition-all text-left flex items-start space-x-6"
           >
-            <div className={`${subject.color} w-16 h-16 rounded-2xl flex items-center justify-center text-3xl mb-6 shadow-lg group-hover:scale-110 transition-transform duration-500`}>
+            <div className="bg-slate-50 w-16 h-16 shrink-0 rounded-2xl flex items-center justify-center text-3xl group-hover:bg-blue-50 transition-colors">
               {subject.icon}
             </div>
-            <h3 className="text-2xl font-bold text-gray-800 mb-2">{subject.name}</h3>
-            <p className="text-gray-500 text-sm flex-grow">Parcours complet avec cours et exercices interactifs.</p>
-            
-            <div className="mt-6 flex items-center text-blue-600 font-bold text-sm">
-              Explorer
-              <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7-7 7" />
-              </svg>
+            <div className="space-y-2">
+              <h3 className="text-xl font-bold text-slate-900">{subject.name}</h3>
+              <p className="text-slate-500 text-sm leading-relaxed font-medium">Modules de révision complets et exercices d'application.</p>
+              <div className="pt-2 text-xs font-bold text-blue-600 uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">
+                Ouvrir le module →
+              </div>
             </div>
           </button>
         ))}

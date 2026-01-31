@@ -1,5 +1,5 @@
 
-export type Level = 'Primaire' | 'Collège' | 'Lycée';
+export type Level = 'Collège' | 'Lycée';
 
 export type SubjectId = 'maths' | 'francais' | 'sciences' | 'histoire' | 'geographie' | 'anglais' | 'informatique' | 'arts' | 'civisme' | 'ecologie';
 
@@ -33,7 +33,7 @@ export interface UserStats {
   completedExercises: number;
 }
 
-// Fix: added missing LeaderboardEntry interface used in Leaderboard component
+// Fix: Adding the missing LeaderboardEntry interface required by Leaderboard.tsx
 export interface LeaderboardEntry {
   username: string;
   xp: number;

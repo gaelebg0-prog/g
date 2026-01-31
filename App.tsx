@@ -9,7 +9,7 @@ const App: React.FC = () => {
   const [user, setUser] = useState<UserStats>(() => {
     const saved = localStorage.getItem('eduquest_user_v2');
     return saved ? JSON.parse(saved) : {
-      username: 'Apprenti',
+      username: 'Étudiant',
       completedExercises: 0
     };
   });
@@ -44,33 +44,48 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 pb-20">
+    <div className="min-h-screen bg-slate-50 pb-20 font-sans text-slate-900">
       <Navbar 
         user={user} 
         onHomeClick={resetToStart} 
       />
       
-      <main className="max-w-7xl mx-auto px-4 sm:px-8 py-10">
+      <main className="max-w-7xl mx-auto px-6 sm:px-12 py-12">
         {view === 'start' && (
-          <div className="space-y-12">
-            <div className="text-center space-y-4">
-              <h1 className="text-5xl font-black text-gray-900">Bienvenue sur <span className="text-blue-600">EduQuest</span></h1>
-              <p className="text-xl text-gray-500">Sélectionne ton cycle scolaire pour accéder aux cours et exercices.</p>
+          <div className="space-y-16 animate-in fade-in duration-700">
+            <div className="max-w-3xl mx-auto text-center space-y-6">
+              <span className="inline-block px-4 py-1.5 bg-blue-50 text-blue-700 text-sm font-bold rounded-full tracking-wide uppercase">
+                Plateforme de Réussite Académique
+              </span>
+              <h1 className="text-5xl sm:text-6xl font-extrabold text-slate-900 leading-tight">
+                L'excellence éducative à portée de main.
+              </h1>
+              <p className="text-xl text-slate-500 font-medium">
+                Accédez à des cours structurés et des modules d'évaluation interactive pour maîtriser les programmes officiels.
+              </p>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
               {[
-                { id: 'Primaire', icon: '🎒', desc: 'Apprendre les bases essentielles' },
-                { id: 'Collège', icon: '🏫', desc: 'Approfondir tes connaissances' },
-                { id: 'Lycée', icon: '🎓', desc: 'Préparer tes examens et ton avenir' }
+                { id: 'Collège', icon: '🏛️', desc: 'Cycles 3 et 4 : Consolidation des fondamentaux et préparation au Brevet.' },
+                { id: 'Lycée', icon: '🎓', desc: 'Seconde, Première & Terminale : Spécialisation et préparation intensive au Baccalauréat.' }
               ].map((lvl) => (
                 <button
                   key={lvl.id}
                   onClick={() => handleLevelSelect(lvl.id as Level)}
-                  className="bg-white p-10 rounded-[2.5rem] border-2 border-transparent hover:border-blue-500 hover:shadow-2xl transition-all group text-center"
+                  className="bg-white p-10 rounded-3xl border border-slate-200 shadow-sm hover:shadow-xl hover:border-blue-600 hover:-translate-y-1 transition-all group text-left"
                 >
-                  <div className="text-6xl mb-6 group-hover:scale-110 transition-transform">{lvl.icon}</div>
-                  <h3 className="text-2xl font-black text-gray-800 mb-2">{lvl.id}</h3>
-                  <p className="text-gray-500 text-sm">{lvl.desc}</p>
+                  <div className="text-5xl mb-6 bg-slate-50 w-20 h-20 flex items-center justify-center rounded-2xl group-hover:bg-blue-50 transition-colors">
+                    {lvl.icon}
+                  </div>
+                  <h3 className="text-3xl font-bold text-slate-900 mb-3">{lvl.id}</h3>
+                  <p className="text-slate-500 leading-relaxed font-medium">{lvl.desc}</p>
+                  <div className="mt-8 flex items-center text-blue-600 font-bold uppercase tracking-wider text-sm">
+                    Accéder au portail 
+                    <svg className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </div>
                 </button>
               ))}
             </div>
@@ -78,9 +93,12 @@ const App: React.FC = () => {
         )}
 
         {view === 'home' && selectedLevel && (
-          <div className="space-y-8">
-            <button onClick={resetToStart} className="flex items-center text-gray-500 font-bold hover:text-blue-600">
-              ← Changer de niveau ({selectedLevel})
+          <div className="space-y-10 animate-in slide-in-from-bottom-4">
+            <button onClick={resetToStart} className="flex items-center text-slate-400 font-bold hover:text-blue-600 transition-colors">
+              <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              </svg>
+              Changer de cycle scolaire
             </button>
             <SubjectSelector onSelect={handleSubjectSelect} level={selectedLevel} />
           </div>

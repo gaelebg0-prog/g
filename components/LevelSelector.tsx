@@ -9,7 +9,8 @@ interface LevelSelectorProps {
 }
 
 const LevelSelector: React.FC<LevelSelectorProps> = ({ subject, onSelect, onBack }) => {
-  const levels: Level[] = ['Primaire', 'Collège', 'Lycée'];
+  // Fix: Removed 'Primaire' as it is not part of the 'Level' type definition ('Collège' | 'Lycée')
+  const levels: Level[] = ['Collège', 'Lycée'];
 
   return (
     <div className="space-y-8 max-w-4xl mx-auto">
@@ -31,7 +32,7 @@ const LevelSelector: React.FC<LevelSelectorProps> = ({ subject, onSelect, onBack
         <p className="text-gray-500 max-w-md">Chaque niveau propose des exercices adaptés et un programme complet.</p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {levels.map((level) => (
           <button
             key={level}
