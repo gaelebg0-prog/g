@@ -30,12 +30,10 @@ export interface Subject {
 
 export interface UserStats {
   username: string;
-  xp: number;
   completedExercises: number;
-  rank: number;
-  level: number;
 }
 
+// Fix: added missing LeaderboardEntry interface used in Leaderboard component
 export interface LeaderboardEntry {
   username: string;
   xp: number;

@@ -2,7 +2,6 @@
 import { Subject } from '../types.ts';
 
 export const SUBJECTS: Subject[] = [
-  // ... (Garder les autres matières)
   {
     id: 'maths',
     name: 'Mathématiques',
@@ -12,16 +11,283 @@ export const SUBJECTS: Subject[] = [
       'Primaire': [
         {
           id: 'm-p-1',
-          title: 'Les Multiplications de base',
-          content: 'La multiplication est une addition répétée. Par exemple, 3 x 4 c\'est 4 + 4 + 4.\n\nPoints clés :\n- Tout nombre multiplié par 0 égale 0.\n- Tout nombre multiplié par 1 ne change pas.',
-          exercises: [
-            { id: 'm-p-1-e1', question: 'Combien font 7 x 8 ?', options: ['48', '54', '56', '62'], correctAnswer: 2, justification: '7 x 8 = 56. Un classique des tables !', points: 10 },
-            { id: 'm-p-1-e2', question: 'Si j\'ai 3 paquets de 5 bonbons, combien ai-je de bonbons ?', options: ['8', '15', '12', '18'], correctAnswer: 1, justification: '3 x 5 = 15 bonbons.', points: 10 }
-          ]
+          title: 'Addition & Soustraction',
+          content: 'L\'addition permet de calculer un total. La soustraction permet de trouver une différence.\nEx: 5 + 3 = 8 | 10 - 4 = 6',
+          exercises: [{ id: 'm-p-1-e1', question: 'Combien font 12 + 15 ?', options: ['25', '27', '30', '22'], correctAnswer: 1, justification: '12 + 10 = 22, 22 + 5 = 27.', points: 10 }]
         }
       ],
-      'Collège': [],
-      'Lycée': []
+      'Collège': [
+        {
+          id: 'm-c-1',
+          title: 'Le Théorème de Thalès',
+          content: 'Thalès permet de calculer des longueurs dans des triangles emboîtés avec des droites parallèles.\nFormule : AM/AB = AN/AC = MN/BC',
+          exercises: [{ id: 'm-c-1-e1', question: 'Si AM/AB = 0.5 et BC = 10, que vaut MN ?', options: ['5', '2.5', '20', '7.5'], correctAnswer: 0, justification: 'MN = BC * (AM/AB) = 10 * 0.5 = 5.', points: 20 }]
+        }
+      ],
+      'Lycée': [
+        {
+          id: 'm-l-1',
+          title: 'Nombres Complexes',
+          content: 'L\'ensemble C prolonge R. On définit i tel que i² = -1.\nForme algébrique : z = a + bi (a: partie réelle, b: partie imaginaire).',
+          exercises: [{ id: 'm-l-1-e1', question: 'Que vaut (2 + 3i) + (1 - i) ?', options: ['3 + 2i', '3 + 4i', '1 + 4i', '2 + 2i'], correctAnswer: 0, justification: 'On additionne réels entre eux et imaginaires entre eux : 2+1=3 et 3i-i=2i.', points: 30 }]
+        }
+      ]
+    }
+  },
+  {
+    id: 'francais',
+    name: 'Français & Philo',
+    icon: '📚',
+    color: 'bg-orange-500',
+    levels: {
+      'Primaire': [
+        {
+          id: 'f-p-1',
+          title: 'Les Homophones (a/à)',
+          content: '"a" sans accent est le verbe avoir conjugué. On peut le remplacer par "avait".\n"à" avec accent est une préposition.',
+          exercises: [{ id: 'f-p-1-e1', question: 'Il ___ mangé ___ la cantine.', options: ['a / a', 'à / à', 'à / a', 'a / à'], correctAnswer: 3, justification: 'Il avait mangé (a) à la cantine (préposition).', points: 10 }]
+        }
+      ],
+      'Collège': [
+        {
+          id: 'f-c-1',
+          title: 'L\'Ironie',
+          content: 'L\'ironie consiste à dire le contraire de ce que l\'on pense pour se moquer.',
+          exercises: [{ id: 'f-c-1-e1', question: '"Quel beau temps !" alors qu\'il pleut est une...', options: ['Métaphore', 'Antiphrase', 'Comparaison', 'Hyperbole'], correctAnswer: 1, justification: 'L\'antiphrase est le procédé majeur de l\'ironie.', points: 20 }]
+        }
+      ],
+      'Lycée': [
+        {
+          id: 'f-l-1',
+          title: 'Introduction à la Philosophie : Le Bonheur',
+          content: 'Le bonheur est un état de satisfaction durable. Épicure le définit par l\'absence de souffrance (ataraxie). Pour Kant, c\'est un idéal de l\'imagination.',
+          exercises: [{ id: 'f-l-1-e1', question: 'Selon Épicure, le bonheur réside dans...', options: ['La richesse', 'L\'absence de trouble (ataraxie)', 'Le pouvoir', 'Le travail acharné'], correctAnswer: 1, justification: 'La philosophie épicurienne prône la recherche de plaisirs simples et l\'absence de douleur.', points: 30 }]
+        }
+      ]
+    }
+  },
+  {
+    id: 'sciences',
+    name: 'Sciences & Physique',
+    icon: '🧪',
+    color: 'bg-emerald-500',
+    levels: {
+      'Primaire': [
+        {
+          id: 's-p-1',
+          title: 'Les États de la Matière',
+          content: 'L\'eau peut être solide (glace), liquide ou gazeuse (vapeur).',
+          exercises: [{ id: 's-p-1-e1', question: 'À quelle température l\'eau gèle-t-elle ?', options: ['100°C', '0°C', '50°C', '-10°C'], correctAnswer: 1, justification: 'L\'eau pure devient solide à 0°C.', points: 10 }]
+        }
+      ],
+      'Collège': [
+        {
+          id: 's-c-1',
+          title: 'Le Système Solaire',
+          content: 'Huit planètes tournent autour du Soleil. Les planètes telluriques sont proches du Soleil.',
+          exercises: [{ id: 's-c-1-e1', question: 'Quelle est la planète la plus proche du Soleil ?', options: ['Vénus', 'Terre', 'Mercure', 'Mars'], correctAnswer: 2, justification: 'Mercure est la première planète du système solaire.', points: 20 }]
+        }
+      ],
+      'Lycée': [
+        {
+          id: 's-l-1',
+          title: 'Thermodynamique : Loi des Gaz Parfaits',
+          content: 'Relation PV = nRT.\nP: pression (Pa), V: volume (m3), n: moles, R: 8.314, T: Température (Kelvin).',
+          exercises: [{ id: 's-l-1-e1', question: 'Pour un gaz, si on double la pression à température constante, le volume...', options: ['Double', 'Reste identique', 'Est divisé par deux', 'Triple'], correctAnswer: 2, justification: 'P*V = constante, donc si P x2, V /2.', points: 30 }]
+        }
+      ]
+    }
+  },
+  {
+    id: 'histoire',
+    name: 'Histoire',
+    icon: '📜',
+    color: 'bg-purple-500',
+    levels: {
+      'Primaire': [
+        {
+          id: 'h-p-1',
+          title: 'Les Châteaux Forts',
+          content: 'Au Moyen-Âge, les seigneurs vivaient dans des châteaux pour se protéger.',
+          exercises: [{ id: 'h-p-1-e1', question: 'Où se réfugie-t-on en dernier recours dans un château ?', options: ['Les douves', 'La cour', 'Le donjon', 'L\'écurie'], correctAnswer: 2, justification: 'Le donjon est la tour la plus haute et la mieux protégée.', points: 10 }]
+        }
+      ],
+      'Collège': [
+        {
+          id: 'h-c-1',
+          title: 'La Première Guerre Mondiale',
+          content: '1914-1918. Une guerre de tranchées meurtrière.',
+          exercises: [{ id: 'h-c-1-e1', question: 'En quelle année l\'armistice a-t-il été signé ?', options: ['1914', '1916', '1918', '1945'], correctAnswer: 2, justification: 'Le 11 novembre 1918.', points: 20 }]
+        }
+      ],
+      'Lycée': [
+        {
+          id: 'h-l-1',
+          title: 'La Guerre Froide (1947-1991)',
+          content: 'Conflit idéologique entre USA (Capitalisme) et URSS (Communisme) sans affrontement direct.',
+          exercises: [{ id: 'h-l-1-e1', question: 'Quel symbole tombe en 1989 marquant la fin de la Guerre Froide ?', options: ['Le Mur de Berlin', 'La Statue de la Liberté', 'Le Kremlin', 'La Tour Eiffel'], correctAnswer: 0, justification: 'La chute du mur de Berlin préfigure l\'effondrement de l\'URSS.', points: 30 }]
+        }
+      ]
+    }
+  },
+  {
+    id: 'geographie',
+    name: 'Géographie',
+    icon: '🌍',
+    color: 'bg-teal-500',
+    levels: {
+      'Primaire': [
+        {
+          id: 'g-p-1',
+          title: 'Les Continents',
+          content: 'Il y a 6 continents : Europe, Afrique, Asie, Amérique, Océanie, Antarctique.',
+          exercises: [{ id: 'g-p-1-e1', question: 'Sur quel continent se trouve la France ?', options: ['Asie', 'Amérique', 'Europe', 'Afrique'], correctAnswer: 2, justification: 'La France est au coeur de l\'Europe.', points: 10 }]
+        }
+      ],
+      'Collège': [
+        {
+          id: 'g-c-1',
+          title: 'Le Développement Durable',
+          content: 'Répondre aux besoins du présent sans compromettre ceux des générations futures.',
+          exercises: [{ id: 'g-c-1-e1', question: 'Quels sont les 3 piliers du DD ?', options: ['Argent, Or, Bronze', 'Économie, Social, Environnement', 'Paix, Travail, Patrie', 'Liberté, Égalité, Fraternité'], correctAnswer: 1, justification: 'Le DD doit concilier ces trois aspects.', points: 20 }]
+        }
+      ],
+      'Lycée': [
+        {
+          id: 'g-l-1',
+          title: 'La Mondialisation',
+          content: 'Processus d\'intégration croissante des territoires et des économies à l\'échelle mondiale.',
+          exercises: [{ id: 'g-l-1-e1', question: 'Qu\'est-ce qu\'une FTN ?', options: ['Force Terrestre Nationale', 'Firme Transnationale', 'Fonds Total Net', 'Flux de Transport'], correctAnswer: 1, justification: 'Entreprise présente dans plusieurs pays (ex: Apple, Toyota).', points: 30 }]
+        }
+      ]
+    }
+  },
+  {
+    id: 'anglais',
+    name: 'Anglais',
+    icon: '🇬🇧',
+    color: 'bg-red-600',
+    levels: {
+      'Primaire': [
+        {
+          id: 'a-p-1',
+          title: 'Greetings & Colors',
+          content: 'Hello, Goodbye. Blue, Red, Green, Yellow.',
+          exercises: [{ id: 'a-p-1-e1', question: 'Comment dit-on "Vert" ?', options: ['Red', 'Green', 'Yellow', 'Blue'], correctAnswer: 1, justification: 'Green signifie Vert.', points: 10 }]
+        }
+      ],
+      'Collège': [
+        {
+          id: 'a-c-1',
+          title: 'Present Perfect',
+          content: 'S\'utilise pour une action passée ayant un lien avec le présent. Formule : Have/Has + Participe Passé.',
+          exercises: [{ id: 'a-c-1-e1', question: '"I ___ my keys!" (Je viens de perdre mes clés)', options: ['lost', 'have lost', 'has lost', 'am losing'], correctAnswer: 1, justification: 'Present Perfect pour un résultat présent.', points: 20 }]
+        }
+      ],
+      'Lycée': [
+        {
+          id: 'a-l-1',
+          title: 'Conditionals (Type 2)',
+          content: 'Action imaginaire ou peu probable au présent.\nStructure : If + Simple Past, would + Base Verb.',
+          exercises: [{ id: 'a-l-1-e1', question: '"If I ___ rich, I would travel more."', options: ['am', 'was/were', 'will be', 'have been'], correctAnswer: 1, justification: 'Prétérit après "If" pour exprimer l\'irréel.', points: 30 }]
+        }
+      ]
+    }
+  },
+  {
+    id: 'informatique',
+    name: 'Informatique & SNT',
+    icon: '💻',
+    color: 'bg-gray-800',
+    levels: {
+      'Primaire': [
+        {
+          id: 'i-p-1',
+          title: 'Souris & Clavier',
+          content: 'La souris pour cliquer, le clavier pour écrire.',
+          exercises: [{ id: 'i-p-1-e1', question: 'Quelle touche permet d\'effacer ?', options: ['Entrée', 'Retour Arrière', 'Espace', 'Shift'], correctAnswer: 1, justification: 'Backspace ou Retour Arrière efface le texte.', points: 10 }]
+        }
+      ],
+      'Collège': [
+        {
+          id: 'i-c-1',
+          title: 'Programmation avec Scratch',
+          content: 'Assembler des blocs pour créer des algorithmes.',
+          exercises: [{ id: 'i-c-1-e1', question: 'Quel bloc répète indéfiniment ?', options: ['Si... alors', 'Répéter 10 fois', 'Répéter indéfiniment', 'Avancer'], correctAnswer: 2, justification: 'C\'est la boucle infinie.', points: 20 }]
+        }
+      ],
+      'Lycée': [
+        {
+          id: 'i-l-1',
+          title: 'Algorithmes : Listes en Python',
+          content: 'Une liste permet de stocker plusieurs valeurs. Indexée à partir de 0.',
+          exercises: [{ id: 'i-l-1-e1', question: 'Que fait L.append(5) ?', options: ['Supprime 5', 'Ajoute 5 à la fin', 'Trie la liste', 'Calcule la somme'], correctAnswer: 1, justification: 'Append ajoute un élément à la fin d\'une liste Python.', points: 30 }]
+        }
+      ]
+    }
+  },
+  {
+    id: 'arts',
+    name: 'Arts Plastiques',
+    icon: '🎨',
+    color: 'bg-pink-500',
+    levels: {
+      'Primaire': [
+        {
+          id: 'art-p-1',
+          title: 'Couleurs Primaires',
+          content: 'Cyan (Bleu), Magenta (Rouge), Jaune.',
+          exercises: [{ id: 'art-p-1-e1', question: 'Cyan + Jaune = ?', options: ['Vert', 'Orange', 'Violet', 'Gris'], correctAnswer: 0, justification: 'Le bleu et le jaune font du vert.', points: 10 }]
+        }
+      ],
+      'Collège': [
+        {
+          id: 'art-c-1',
+          title: 'La Perspective',
+          content: 'Technique pour représenter la profondeur sur une feuille plane.',
+          exercises: [{ id: 'art-c-1-e1', question: 'Comment s\'appelle le point où convergent les lignes ?', options: ['Point mort', 'Point de fuite', 'Point final', 'Point de vue'], correctAnswer: 1, justification: 'Le point de fuite simule l\'éloignement.', points: 20 }]
+        }
+      ],
+      'Lycée': [
+        {
+          id: 'art-l-1',
+          title: 'Analyse d\'oeuvre : Guernica',
+          content: 'Tableau monumental de Picasso (1937) dénonçant les horreurs de la guerre.',
+          exercises: [{ id: 'art-l-1-e1', question: 'Quel mouvement artistique Guernica utilise-t-il ?', options: ['Impressionnisme', 'Cubisme / Surréalisme', 'Art Abstrait', 'Pop Art'], correctAnswer: 1, justification: 'Picasso utilise la déconstruction cubiste pour exprimer la douleur.', points: 30 }]
+        }
+      ]
+    }
+  },
+  {
+    id: 'civisme',
+    name: 'Citoyenneté',
+    icon: '⚖️',
+    color: 'bg-amber-600',
+    levels: {
+      'Primaire': [
+        {
+          id: 'civ-p-1',
+          title: 'Les Symboles de la France',
+          content: 'Le drapeau tricolore, l\'hymne (La Marseillaise), la devise.',
+          exercises: [{ id: 'civ-p-1-e1', question: 'Quelle est la devise de la France ?', options: ['Paix et Travail', 'Liberté, Égalité, Fraternité', 'Un pour tous', 'Vivre ensemble'], correctAnswer: 1, justification: 'Héritage de la Révolution Française.', points: 10 }]
+        }
+      ],
+      'Collège': [
+        {
+          id: 'civ-c-1',
+          title: 'Le Rôle du Maire',
+          content: 'Le maire dirige la commune et s\'occupe des écoles primaires.',
+          exercises: [{ id: 'civ-c-1-e1', question: 'Par qui le maire est-il élu ?', options: ['Le Président', 'Les citoyens directement', 'Le Conseil Municipal', 'Le Préfet'], correctAnswer: 2, justification: 'Le suffrage est indirect : les citoyens élisent le conseil, qui élit le maire.', points: 20 }]
+        }
+      ],
+      'Lycée': [
+        {
+          id: 'civ-l-1',
+          title: 'Les Institutions de l\'UE',
+          content: 'Commission Européenne, Parlement Européen, Conseil de l\'UE.',
+          exercises: [{ id: 'civ-l-1-e1', question: 'Où siège le Parlement Européen ?', options: ['Paris', 'Bruxelles / Strasbourg', 'Londres', 'Rome'], correctAnswer: 1, justification: 'Le siège officiel est à Strasbourg.', points: 30 }]
+        }
+      ]
     }
   },
   {
@@ -33,34 +299,27 @@ export const SUBJECTS: Subject[] = [
       'Primaire': [
         {
           id: 'eco-p-1',
-          title: 'Protéger notre Planète',
-          content: `L'écologie, c'est l'étude des relations entre les êtres vivants et leur environnement. Notre planète Terre est comme une grande maison que nous devons partager et protéger.\n\nLes 3 gestes essentiels (La règle des 3R) :\n1. Réduire : Utiliser moins de choses (moins de plastique, moins d'eau).\n2. Réutiliser : Donner une seconde vie aux objets au lieu de les jeter.\n3. Recycler : Trier ses déchets pour en faire de nouveaux objets.\n\nPourquoi est-ce important ?\nParce que les ressources de la Terre ne sont pas infinies. L'eau potable est rare, et les forêts mettent des dizaines d'années à pousser. En faisant attention, nous protégeons les animaux et notre propre santé !`,
-          exercises: [
-            { id: 'e-1', question: 'Lequel de ces objets va dans la poubelle jaune (recyclage) ?', options: ['Un reste de pomme', 'Une bouteille en plastique', 'Une couche culotte', 'Un mouchoir sale'], correctAnswer: 1, justification: 'Le plastique se recycle pour créer de nouveaux objets.', points: 10 },
-            { id: 'e-2', question: 'Que signifie "Réduire" dans la règle des 3R ?', options: ['Acheter plus', 'Utiliser moins de ressources', 'Jeter par terre', 'Couper les arbres'], correctAnswer: 1, justification: 'Moins on consomme, moins on produit de pollution.', points: 10 },
-            { id: 'e-3', question: 'Pourquoi faut-il fermer le robinet quand on se brosse les dents ?', options: ['Pour faire du bruit', 'Pour économiser l\'eau potable', 'Pour s\'amuser', 'Parce que c\'est interdit'], correctAnswer: 1, justification: 'L\'eau est précieuse, il ne faut pas la gaspiller.', points: 10 },
-            { id: 'e-4', question: 'Quel transport pollue le MOINS pour aller à l\'école ?', options: ['La voiture', 'Le vélo', 'Le bus', 'L\'avion'], correctAnswer: 1, justification: 'Le vélo utilise l\'énergie de tes jambes !', points: 10 },
-            { id: 'e-5', question: 'Où doit-on jeter les piles usagées ?', options: ['Dans la rue', 'Dans un bac spécial en magasin', 'À la poubelle grise', 'Dans les toilettes'], correctAnswer: 1, justification: 'Les piles contiennent des produits dangereux qui polluent la terre.', points: 10 },
-            { id: 'e-6', question: 'Lequel est un déchet organique (qui se décompose) ?', options: ['Une canette', 'Une peau de banane', 'Un sac plastique', 'Un jouet cassé'], correctAnswer: 1, justification: 'La peau de banane peut servir de compost pour les plantes.', points: 10 },
-            { id: 'e-7', question: 'Combien de temps un sac plastique met-il à disparaître dans la nature ?', options: ['1 an', '10 ans', '450 ans', 'Jamais'], correctAnswer: 2, justification: 'C\'est énorme ! C\'est pour ça qu\'il faut éviter le plastique.', points: 10 },
-            { id: 'e-8', question: 'Que peut-on faire avec de vieux vêtements ?', options: ['Les brûler', 'Les donner ou les recycler', 'Les mettre dans la forêt', 'Les manger'], correctAnswer: 1, justification: 'La réutilisation évite de fabriquer de nouveaux tissus.', points: 10 },
-            { id: 'e-9', question: 'Quelle est la couleur habituelle du bac pour le verre ?', options: ['Bleu', 'Jaune', 'Vert', 'Rouge'], correctAnswer: 2, justification: 'Le vert rappelle souvent le recyclage du verre.', points: 10 },
-            { id: 'e-10', question: 'Le papier se recycle-t-il ?', options: ['Oui, toujours', 'Non, jamais', 'Seulement le papier journal', 'Seulement si c\'est écrit'], correctAnswer: 0, justification: 'Le papier peut être transformé en nouveau papier plusieurs fois.', points: 10 },
-            { id: 'e-11', question: 'Comment appelle-t-on le fait de faire du terreau avec des déchets ?', options: ['Le recyclage', 'Le compostage', 'Le jardinage', 'Le mélange'], correctAnswer: 1, justification: 'Le compost transforme les déchets en nourriture pour la terre.', points: 10 },
-            { id: 'e-12', question: 'Que se passe-t-il si on jette du plastique dans la mer ?', options: ['Il fond', 'Les poissons le mangent et tombent malades', 'Il devient du sable', 'Il nettoie l\'eau'], correctAnswer: 1, justification: 'C\'est une grave pollution pour les océans.', points: 10 },
-            { id: 'e-13', question: 'Faut-il éteindre la lumière quand on sort d\'une pièce ?', options: ['Non', 'Oui, pour économiser l\'électricité', 'Seulement le soir', 'Si maman le dit'], correctAnswer: 1, justification: 'Produire de l\'électricité peut polluer la planète.', points: 10 },
-            { id: 'e-14', question: 'Quel animal aide à nettoyer la terre en mangeant les feuilles mortes ?', options: ['Le lion', 'Le ver de terre', 'L\'oiseau', 'Le chat'], correctAnswer: 1, justification: 'Il est l\'ingénieur secret du sol !', points: 10 },
-            { id: 'e-15', question: 'Peut-on recycler un pot de yaourt ?', options: ['Oui', 'Non', 'Seulement s\'il est lavé', 'Seulement le couvercle'], correctAnswer: 0, justification: 'De plus en plus de villes acceptent tous les plastiques.', points: 10 },
-            { id: 'e-16', question: 'Qu\'est-ce qui est le plus écologique ?', options: ['Une gourde', 'Une bouteille en plastique', 'Une canette', 'Un gobelet jetable'], correctAnswer: 0, justification: 'La gourde se réutilise des milliers de fois.', points: 10 },
-            { id: 'e-17', question: 'Où vont les eaux usées des toilettes ?', options: ['À la mer directement', 'Dans une station d\'épuration', 'Dans les rivières', 'Sous la terre'], correctAnswer: 1, justification: 'Elles sont nettoyées avant d\'être relâchées.', points: 10 },
-            { id: 'e-18', question: 'Comment protéger les abeilles ?', options: ['En mettant des fleurs partout', 'En utilisant des pesticides', 'En les chassant', 'En fermant les fenêtres'], correctAnswer: 0, justification: 'Les abeilles ont besoin de fleurs pour vivre et nous donner des fruits.', points: 10 },
-            { id: 'e-19', question: 'Quelle énergie vient du Soleil ?', options: ['Le vent', 'Le solaire', 'Le pétrole', 'Le charbon'], correctAnswer: 1, justification: 'C\'est une énergie propre et inépuisable.', points: 10 },
-            { id: 'e-20', question: 'Comment appelle-t-on une forêt qui brûle ?', options: ['Un incendie', 'Une fête', 'Un barbecue', 'Une déforestation'], correctAnswer: 0, justification: 'Les incendies détruisent la maison des animaux.', points: 10 }
-          ]
+          title: 'Le Tri des Déchets',
+          content: 'Bac jaune pour le plastique/papier, bac gris pour le reste, bac vert pour le verre.',
+          exercises: [{ id: 'e-1', question: 'Où va une bouteille en plastique ?', options: ['Bac gris', 'Bac jaune', 'Bac vert', 'La mer'], correctAnswer: 1, justification: 'Elle se recycle !', points: 10 }]
         }
       ],
-      'Collège': [],
-      'Lycée': []
+      'Collège': [
+        {
+          id: 'eco-c-1',
+          title: 'La Biodiversité',
+          content: 'Diversité des espèces vivantes sur Terre. Menacée par la pollution.',
+          exercises: [{ id: 'eco-c-1-e1', question: 'Qu\'est-ce qui aide à la pollinisation des plantes ?', options: ['Le vent', 'Les abeilles', 'Les fleurs elles-mêmes', 'Tous les trois'], correctAnswer: 3, justification: 'Les trois jouent un rôle, mais les insectes sont cruciaux.', points: 20 }]
+        }
+      ],
+      'Lycée': [
+        {
+          id: 'eco-l-1',
+          title: 'Empreinte Carbone & Transition',
+          content: 'Mesurer l\'impact de nos activités en CO2. Passer aux énergies renouvelables.',
+          exercises: [{ id: 'eco-l-1-e1', question: 'Quel secteur émet le plus de GES en France ?', options: ['Numérique', 'Transports', 'Agriculture', 'Mode'], correctAnswer: 1, justification: 'Le transport routier est la source majeure.', points: 30 }]
+        }
+      ]
     }
   }
 ];
