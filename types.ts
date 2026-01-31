@@ -1,8 +1,7 @@
 
 export type Level = 'Primaire' | 'Collège' | 'Lycée';
 
-// Added missing subject IDs: 'geographie', 'anglais', 'informatique', 'arts'
-export type SubjectId = 'maths' | 'francais' | 'sciences' | 'histoire' | 'geographie' | 'anglais' | 'informatique' | 'arts';
+export type SubjectId = 'maths' | 'francais' | 'sciences' | 'histoire' | 'geographie' | 'anglais' | 'informatique' | 'arts' | 'civisme' | 'ecologie';
 
 export interface Exercise {
   id: string;
@@ -11,6 +10,7 @@ export interface Exercise {
   correctAnswer: number;
   justification: string;
   points: number;
+  completed?: boolean;
 }
 
 export interface Lesson {
